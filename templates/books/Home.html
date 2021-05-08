@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Books</title>
+</head>
+
+<body>
+    <h1>Books List</h1>
+
+    <p>Sort by:</p>
+    <a href="/books/title">
+        <p>Title</p>
+    </a>
+    <a href="/books/read_counter">
+        <p>Increasing Read Count</p>
+    </a>
+    <a href="/books/-read_counter">
+        <p>Decreasing Read Count</p>
+    </a>
+    <a href="/books/release_date">
+        <p>Release Date</p>
+    </a>
+
+    {%for obj in object_list%}
+    <div class="book-details">
+        <p>Title : {{obj.title}}</p>
+        <p>Description : {{obj.description}}</p>
+        <p>Release Date : {{obj.release_date}}</p>
+        <p>Read Count : {{obj.read_counter}}</p>
+        <a href="/books/{{obj.id}}/">Read the book</a>
+    </div>
+    <br>
+    {%endfor%}
+</body>
+
+</html>
